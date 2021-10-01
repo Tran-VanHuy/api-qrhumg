@@ -8,10 +8,11 @@ import videointroduce from "./routers/VideoIntroduce.js";
 import dotenv from "dotenv";
 
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const URI = process.env.DATABASE_URL;
+const URI = 'mongodb+srv://admin:admin123@cluster0.ielvj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 app.use(bodyParser.json({limit : '30mb'}));
 app.use(
