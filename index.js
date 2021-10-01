@@ -5,9 +5,9 @@ import posts from "./routers/posts.js";
 import mongoose from "mongoose";
 import postdepratment from "./routers/postsDepartment.js";
 import videointroduce from "./routers/VideoIntroduce.js";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 const app = express();;
 
 
