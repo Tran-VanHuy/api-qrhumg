@@ -1,55 +1,38 @@
-// import express from "express";
-// import bodyParser from "body-parser";
-// import cors from "cors";
-// import posts from "./routers/posts.js";
-// import mongoose from "mongoose";
-// import postdepratment from "./routers/postsDepartment.js";
-// import videointroduce from "./routers/VideoIntroduce.js";
-// import dotenv from "dotenv";
-
-// dotenv.config();
-// const app = express();;
-
-
-// app.use(bodyParser.json({limit : '30mb'}));
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//     limit: "30mb",
-//   })
-// );
-// app.use(cors());
-
-// app.use("/posts", posts);
-// app.use("/", postdepratment);
-// app.use("/", videointroduce);
-
-// mongoose
-//   .connect( process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log("Connected to DB");
-//     app.listen(process.env.PORT, () => {
-//       console.log(`Server is running on port ${PORT}`);
-//     });
-//   })
-//   .catch((err) => {
-//     console.log("err", err);
-//   });
-
 import express from "express";
-const app = express();
+import bodyParser from "body-parser";
+import cors from "cors";
+import posts from "./routers/posts.js";
+import mongoose from "mongoose";
+import postdepratment from "./routers/postsDepartment.js";
+import videointroduce from "./routers/VideoIntroduce.js";
+import dotenv from "dotenv";
 
-let port = process.env.PORT || 3000
+dotenv.config();
+const app = express();;
 
-app.get("/", (req, res) => {
-      res.send("he")
-})
 
-app.get("/player", (req, res) => {
-      res.send("he data")
-})
+app.use(bodyParser.json({limit : '30mb'}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+    limit: "30mb",
+  })
+);
+app.use(cors());
 
-app.listen(port, () => {
+app.use("/posts", posts);
+app.use("/", postdepratment);
+app.use("/", videointroduce);
 
-      console.log(`${port}`);
-})
+mongoose
+  .connect( process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Connected to DB");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("err", err);
+  });
+
