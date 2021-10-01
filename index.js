@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 8080;
 
 const URI = process.env.URL_DATABASE;
 
