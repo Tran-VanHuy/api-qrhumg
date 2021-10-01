@@ -8,10 +8,8 @@ import videointroduce from "./routers/VideoIntroduce.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();;
 
-const URI = process.env.URL_DATABASE;
 
 app.use(bodyParser.json({limit : '30mb'}));
 app.use(
@@ -27,10 +25,10 @@ app.use("/", postdepratment);
 app.use("/", videointroduce);
 
 mongoose
-  .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect( process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to DB");
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
